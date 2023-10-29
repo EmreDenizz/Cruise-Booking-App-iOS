@@ -24,7 +24,7 @@ class RegisterViewController: UIViewController {
     
     // Cancel button
     @IBAction func cancelButtonAction (_ sender: UIButton) {
-        let control = storyboard?.instantiateViewController(withIdentifier: "home") as! ViewController
+        let control = storyboard?.instantiateViewController(withIdentifier: "home") as! SlashScreenController
         
         present(control, animated: true)
     }

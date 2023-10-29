@@ -8,22 +8,38 @@
 import UIKit
 
 class SearchViewController: UIViewController {
+    
+    //category picker object
+    @IBOutlet var categoryPicker: UIPickerView!
+
+    private let categoryNames = ["Bahamas Cruise", "Carribean Cruise", "Cuber Cruise", "Sampler Cruise", "Star Cruise"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //set up datasource and delegate for single picker component
+        categoryPicker.dataSource = self
+        categoryPicker.delegate = self
     }
-    
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+// MARK:-
+// MARK: Picker Data Source Methods
+extension SearchViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
     }
-    */
 
+    func pickerView(_ pickerView: UIPickerView,
+                    numberOfRowsInComponent component: Int) -> Int {
+        return categoryNames.count
+    }
+}
+
+extension SearchViewController: UIPickerViewDelegate {
+    // MARK: Picker Delegate Methods
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categoryNames[row]
+    }
 }

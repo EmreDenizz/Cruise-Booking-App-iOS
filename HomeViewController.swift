@@ -8,11 +8,33 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    
+    //Reference to the cruise image
+    @IBOutlet weak var cruiseImageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // create tap gesture recognizer
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(cruiseDetailAction))
+
+        // add gesture to the image view;
+        cruiseImageView.addGestureRecognizer(tapGesture)
+        
+    }
+    
+    //Search input action - This allows the user move to the search screen they click the input field
+    @IBAction func searchButtonAction (_ sender: Any) {
+        let control = storyboard?.instantiateViewController(withIdentifier: "search") as! SearchViewController
+        
+        present(control, animated: true)
+    }
+    
+    //Cruise detail action
+    @objc func cruiseDetailAction (gesture: UIGestureRecognizer) {
+        let control = storyboard?.instantiateViewController(withIdentifier: "cruise") as! CruiseViewController
+        
+        present(control, animated: true)
     }
     
 

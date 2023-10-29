@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SlashScreenController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +36,12 @@ class ViewController: UIViewController {
         present(control, animated: true)
     }
     
+    //Home button
+    @IBAction func homeButtonAction (_ sender: Any) {
+        let control = storyboard?.instantiateViewController(withIdentifier: "home_view") as! HomeViewController
+        
+        present(control, animated: true)
+    }
 
 
 }

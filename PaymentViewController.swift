@@ -16,8 +16,13 @@ class PaymentViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // Add visa_mastercard image programmatically
+        let imgName = "visa_mastercard.jpg"
+        let image = UIImage(named: imgName)
+        let imageView = UIImageView(image: image!)
+        imageView.frame = CGRect(x: 22, y: 670, width: 75, height: 60)
+        view.addSubview(imageView)
     }
     
     // Pay button

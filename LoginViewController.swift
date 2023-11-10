@@ -22,7 +22,7 @@ class LoginViewController: UIViewController {
     
     // Login button
     @IBAction func loginButtonAction (_ sender: UIButton) {
-        let control = storyboard?.instantiateViewController(withIdentifier: "search") as! SearchViewController
+        let control = storyboard?.instantiateViewController(withIdentifier: "home") as! HomeViewController
         
         present(control, animated: true)
     }

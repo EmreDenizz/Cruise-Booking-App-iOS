@@ -16,13 +16,17 @@ class RegisterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // Add a label descriptions to accept terms programmatically
+        let lbl = UILabel(frame: CGRect(x: 100, y: 0, width: 300, height: 21))
+        lbl.center = CGPoint(x: 230, y: 491)
+        lbl.text = "You are supposed to accept terms."
+        self.view.addSubview(lbl)
     }
     
     // Register button
     @IBAction func registerButtonAction (_ sender: UIButton) {
-        let control = storyboard?.instantiateViewController(withIdentifier: "search") as! SearchViewController
+        let control = storyboard?.instantiateViewController(withIdentifier: "login") as! LoginViewController
         
         present(control, animated: true)
     }

@@ -987,7 +987,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgs-YK-wcp">
                                 <rect key="frame" x="24" y="683" width="353" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="PAY $7000"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Pay $7000"/>
                                 <connections>
                                     <action selector="payButtonAction:" destination="YLb-Tn-HLj" eventType="touchUpInside" id="qxR-dm-dMt"/>
                                 </connections>

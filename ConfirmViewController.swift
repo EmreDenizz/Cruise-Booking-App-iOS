@@ -21,10 +21,10 @@ class ConfirmViewController: UIViewController {
     }
     
     // Return to Home button
-    @IBAction func returnToButtonAction (_ sender: UIButton) {
-        let control = storyboard?.instantiateViewController(withIdentifier: "home_view") as! HomeViewController
-        
-        present(control, animated: true)
-    }
+//    @IBAction func returnToButtonAction (_ sender: UIButton) {
+//        let control = storyboard?.instantiateViewController(withIdentifier: "home_view") as! HomeViewController
+//        
+//        present(control, animated: true)
+//    }
 
 }

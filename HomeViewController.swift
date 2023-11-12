@@ -16,39 +16,39 @@ class HomeViewController: UIViewController {
     
     
     //Reference to the cruise image
-    @IBOutlet weak var cruiseImageView1: UIImageView!
+    //@IBOutlet weak var cruiseImageView1: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // create tap gesture recognizer
-        let tapGesture1 = UITapGestureRecognizer(target: self, action: #selector(cruiseDetailAction1))
+        //let tapGesture1 = UITapGestureRecognizer(target: self, action: #selector(cruiseDetailAction1))
         
 
         // add gesture to the image view;
-        cruiseImageView1.addGestureRecognizer(tapGesture1)
+        //cruiseImageView1.addGestureRecognizer(tapGesture1)
         
         
         
     }
     
-    @IBAction func openCruise1(_ sender: Any) {
-        //let control = storyboard?.instantiateViewController(withIdentifier: "cruise") as! CruiseViewController
-        //present(control, animated: true)
-        print("Testing")
-    }
+//    @IBAction func openCruise1(_ sender: Any) {
+//        //let control = storyboard?.instantiateViewController(withIdentifier: "cruise") as! CruiseViewController
+//        //present(control, animated: true)
+//        print("Testing")
+//    }
     //Search input action - This allows the user move to the search screen they click the input field
-    @IBAction func searchButtonAction (_ sender: Any) {
-        let control = storyboard?.instantiateViewController(withIdentifier: "search") as! SearchViewController
-        
-        present(control, animated: true)
-    }
+//    @IBAction func searchButtonAction (_ sender: Any) {
+//        let control = storyboard?.instantiateViewController(withIdentifier: "search") as! SearchViewController
+//        
+//        present(control, animated: true)
+//    }
     
     //Cruise detail action
-    @objc func cruiseDetailAction1 (gesture: UIGestureRecognizer) {
-        let control = storyboard?.instantiateViewController(withIdentifier: "cruise") as! CruiseViewController
-        present(control, animated: true)
-    }
+//    @objc func cruiseDetailAction1 (gesture: UIGestureRecognizer) {
+//        let control = storyboard?.instantiateViewController(withIdentifier: "cruise") as! CruiseViewController
+//        present(control, animated: true)
+//    }
     
     
 

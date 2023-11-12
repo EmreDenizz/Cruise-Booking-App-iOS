@@ -21,10 +21,10 @@ class CustomerViewController: UIViewController {
     }
     
     // Continue button
-    @IBAction func continueButtonAction (_ sender: UIButton) {
-        let control = storyboard?.instantiateViewController(withIdentifier: "paymentType") as! PaymentTypeViewController
-        
-        present(control, animated: true)
-    }
+//    @IBAction func continueButtonAction (_ sender: UIButton) {
+//        let control = storyboard?.instantiateViewController(withIdentifier: "paymentType") as! PaymentTypeViewController
+//        
+//        present(control, animated: true)
+//    }
 
 }

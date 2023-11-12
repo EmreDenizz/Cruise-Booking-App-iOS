@@ -21,24 +21,24 @@ class PaymentTypeViewController: UIViewController {
     }
     
     // Apple Pay button
-    @IBAction func applePayButtonAction (_ sender: UIButton) {
-        let control = storyboard?.instantiateViewController(withIdentifier: "payment") as! PaymentViewController
-        
-        present(control, animated: true)
-    }
+//    @IBAction func applePayButtonAction (_ sender: UIButton) {
+//        let control = storyboard?.instantiateViewController(withIdentifier: "payment") as! PaymentViewController
+//        
+//        present(control, animated: true)
+//    }
     
     // Google Pay button
-    @IBAction func googlePayButtonAction (_ sender: UIButton) {
-        let control = storyboard?.instantiateViewController(withIdentifier: "payment") as! PaymentViewController
-        
-        present(control, animated: true)
-    }
+//    @IBAction func googlePayButtonAction (_ sender: UIButton) {
+//        let control = storyboard?.instantiateViewController(withIdentifier: "payment") as! PaymentViewController
+//        
+//        present(control, animated: true)
+//    }
     
     // Credit Card button
-    @IBAction func creditCardButtonAction (_ sender: UIButton) {
-        let control = storyboard?.instantiateViewController(withIdentifier: "payment") as! PaymentViewController
-        
-        present(control, animated: true)
-    }
+//    @IBAction func creditCardButtonAction (_ sender: UIButton) {
+//        let control = storyboard?.instantiateViewController(withIdentifier: "payment") as! PaymentViewController
+//        
+//        present(control, animated: true)
+//    }
 
 }

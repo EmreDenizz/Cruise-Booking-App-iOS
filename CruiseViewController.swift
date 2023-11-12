@@ -21,10 +21,10 @@ class CruiseViewController: UIViewController {
     }
 
     // Book button
-    @IBAction func bookButtonAction (_ sender: UIButton) {
-        let control = storyboard?.instantiateViewController(withIdentifier: "guests") as! GuestsViewController
-        
-        present(control, animated: true)
-    }
+//    @IBAction func bookButtonAction (_ sender: UIButton) {
+//        let control = storyboard?.instantiateViewController(withIdentifier: "guests") as! GuestsViewController
+//        
+//        present(control, animated: true)
+//    }
 
 }

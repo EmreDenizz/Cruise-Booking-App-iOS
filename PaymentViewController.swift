@@ -13,23 +13,26 @@
 import UIKit
 
 class PaymentViewController: UIViewController {
+    let theImageView = UIImageView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Add visa_mastercard image programmatically
-        let imgName = "visa_mastercard.jpg"
-        let image = UIImage(named: imgName)
-        let imageView = UIImageView(image: image!)
-        imageView.frame = CGRect(x: 22, y: 670, width: 75, height: 60)
-        view.addSubview(imageView)
+        designVisaImage()
     }
     
-    // Pay button
-    @IBAction func payButtonAction (_ sender: UIButton) {
-        let control = storyboard?.instantiateViewController(withIdentifier: "confirm") as! ConfirmViewController
+    func designVisaImage(){
+        view.addSubview(theImageView)
         
-        present(control, animated: true)
+        theImageView.image = UIImage(named: "visa_mastercard.jpg")
+        theImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            theImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            theImageView.widthAnchor.constraint(equalToConstant: 284),
+            theImageView.heightAnchor.constraint(equalToConstant: 150),
+            theImageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -32),
+        ])
     }
 
 }

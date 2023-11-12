@@ -21,10 +21,10 @@ class GuestsViewController: UIViewController {
     }
     
     // Continue button
-    @IBAction func continueButtonAction (_ sender: UIButton) {
-        let control = storyboard?.instantiateViewController(withIdentifier: "customer") as! CustomerViewController
-        
-        present(control, animated: true)
-    }
+//    @IBAction func continueButtonAction (_ sender: UIButton) {
+//        let control = storyboard?.instantiateViewController(withIdentifier: "customer") as! CustomerViewController
+//        
+//        present(control, animated: true)
+//    }
 
 }

@@ -20,46 +20,55 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // create tap gesture recognizer
-        //let tapGesture1 = UITapGestureRecognizer(target: self, action: #selector(cruiseDetailAction1))
-        
-
-        // add gesture to the image view;
-        //cruiseImageView1.addGestureRecognizer(tapGesture1)
-        
-        
-        
     }
     
-//    @IBAction func openCruise1(_ sender: Any) {
-//        //let control = storyboard?.instantiateViewController(withIdentifier: "cruise") as! CruiseViewController
-//        //present(control, animated: true)
-//        print("Testing")
-//    }
-    //Search input action - This allows the user move to the search screen they click the input field
-//    @IBAction func searchButtonAction (_ sender: Any) {
-//        let control = storyboard?.instantiateViewController(withIdentifier: "search") as! SearchViewController
-//        
-//        present(control, animated: true)
-//    }
-    
-    //Cruise detail action
-//    @objc func cruiseDetailAction1 (gesture: UIGestureRecognizer) {
-//        let control = storyboard?.instantiateViewController(withIdentifier: "cruise") as! CruiseViewController
-//        present(control, animated: true)
-//    }
+  
     
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func firstCruiseButtonAction(_ sender: UIButton) {
+        // Instantiate the customer view
+        let cruiseView = storyboard?.instantiateViewController(identifier: "cruise") as! CruiseViewController
+        
+        //Pass details to confirm view screen
+        cruiseView.cruiseName = "The Bahamas"
+        cruiseView.cruisePrice = "340.54"
+        
+        self.navigationController?.pushViewController(cruiseView, animated: true)
     }
-    */
+    
+    @IBAction func secondCruiseButtonAction(_ sender: UIButton) {
+        // Instantiate the customer view
+        let cruiseView = storyboard?.instantiateViewController(identifier: "cruise") as! CruiseViewController
+        
+        //Pass details to confirm view screen
+        cruiseView.cruiseName = "Santorini, Greece"
+        cruiseView.cruisePrice = "115.54"
+        
+        self.navigationController?.pushViewController(cruiseView, animated: true)
+    }
+    
+    @IBAction func thirdCruiseButtonAction(_ sender: UIButton) {
+        // Instantiate the customer view
+        let cruiseView = storyboard?.instantiateViewController(identifier: "cruise") as! CruiseViewController
+        
+        //Pass details to confirm view screen
+        cruiseView.cruiseName = "Kauai Maui"
+        cruiseView.cruisePrice = "90.54"
+        
+        self.navigationController?.pushViewController(cruiseView, animated: true)
+    }
+    
+    
+    @IBAction func fourthCruiseButtonAction(_ sender: UIButton) {
+        // Instantiate the customer view
+        let cruiseView = storyboard?.instantiateViewController(identifier: "cruise") as! CruiseViewController
+        
+        //Pass details to confirm view screen
+        cruiseView.cruiseName = "The Maldives"
+        cruiseView.cruisePrice = "200.54"
+        
+        self.navigationController?.pushViewController(cruiseView, animated: true)
+    }
+
 
 }

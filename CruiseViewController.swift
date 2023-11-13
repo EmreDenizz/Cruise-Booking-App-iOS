@@ -13,18 +13,37 @@
 import UIKit
 
 class CruiseViewController: UIViewController {
+    
+    var cruiseName: String?
+    var cruisePrice: String?
+    
+    //Reference to the cruise name label
+    @IBOutlet weak var CruiseNameLabel: UILabel!
+    
+    //Reference to the cruise price label
+    @IBOutlet weak var CruisePriceLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        CruiseNameLabel.text = cruiseName
+        CruisePriceLabel.text = "$" + cruisePrice!
+
+    }
+    
+    
+    @IBAction func onProceed(_ sender: UIButton) {
+        
+        // Instantiate the confirm view
+        let guestView = storyboard?.instantiateViewController(identifier: "guests") as! GuestsViewController
+        
+        //Pass details to confirm view screen
+        guestView.cruiseName = cruiseName
+        guestView.cruisePrice = cruisePrice
+        
+        self.navigationController?.pushViewController(guestView, animated: true)
     }
 
-    // Book button
-//    @IBAction func bookButtonAction (_ sender: UIButton) {
-//        let control = storyboard?.instantiateViewController(withIdentifier: "guests") as! GuestsViewController
-//        
-//        present(control, animated: true)
-//    }
+   
 
 }

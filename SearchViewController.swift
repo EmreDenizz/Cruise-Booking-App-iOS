@@ -28,6 +28,52 @@ class SearchViewController: UIViewController {
     }
     
     
+    @IBAction func firstCruiseButtonAction(_ sender: UIButton) {
+        // Instantiate the customer view
+        let cruiseView = storyboard?.instantiateViewController(identifier: "cruise") as! CruiseViewController
+        
+        //Pass details to confirm view screen
+        cruiseView.cruiseName = "The Bahamas"
+        cruiseView.cruisePrice = "340.54"
+        
+        self.navigationController?.pushViewController(cruiseView, animated: true)
+    }
+    
+    @IBAction func secondCruiseButtonAction(_ sender: UIButton) {
+        // Instantiate the customer view
+        let cruiseView = storyboard?.instantiateViewController(identifier: "cruise") as! CruiseViewController
+        
+        //Pass details to confirm view screen
+        cruiseView.cruiseName = "Santorini, Greece"
+        cruiseView.cruisePrice = "115.54"
+        
+        self.navigationController?.pushViewController(cruiseView, animated: true)
+    }
+    
+    @IBAction func thirdCruiseButtonAction(_ sender: UIButton) {
+        // Instantiate the customer view
+        let cruiseView = storyboard?.instantiateViewController(identifier: "cruise") as! CruiseViewController
+        
+        //Pass details to confirm view screen
+        cruiseView.cruiseName = "Kauai Maui"
+        cruiseView.cruisePrice = "90.54"
+        
+        self.navigationController?.pushViewController(cruiseView, animated: true)
+    }
+    
+    
+    @IBAction func fourthCruiseButtonAction(_ sender: UIButton) {
+        // Instantiate the customer view
+        let cruiseView = storyboard?.instantiateViewController(identifier: "cruise") as! CruiseViewController
+        
+        //Pass details to confirm view screen
+        cruiseView.cruiseName = "The Maldives"
+        cruiseView.cruisePrice = "200.54"
+        
+        self.navigationController?.pushViewController(cruiseView, animated: true)
+    }
+    
+    
 }
 
 // MARK:-

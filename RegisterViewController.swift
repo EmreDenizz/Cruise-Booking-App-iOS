@@ -19,7 +19,7 @@ class RegisterViewController: UIViewController {
         
         // Add a label descriptions to accept terms programmatically
         let lbl = UILabel(frame: CGRect(x: 100, y: 0, width: 300, height: 21))
-        lbl.center = CGPoint(x: 230, y: 491)
+        lbl.center = CGPoint(x: 230, y: 590)
         lbl.text = "You are supposed to accept terms."
         self.view.addSubview(lbl)
     }

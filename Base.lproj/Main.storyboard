@@ -219,10 +219,10 @@
             </objects>
             <point key="canvasLocation" x="815" y="-837"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="dbS-aX-3rK">
             <objects>
-                <viewController storyboardIdentifier="profile" id="CTx-X3-fFK" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profile" id="CTx-X3-fFK" customClass="ProfileViewController" customModule="Team3_MAPD714_Project_Milestone2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sjd-Ss-UqT">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

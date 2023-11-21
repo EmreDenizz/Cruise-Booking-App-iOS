@@ -59,6 +59,11 @@ class CruiseDBManager{
         
     }
     
+    // Delete user on User table
+    func deleteUser(id:Int) {
+        
+    }
+    
     // Create cruise table
     func createCruiseTable(){
         var createTableString = "CREATE TABLE IF NOT EXISTS Cruise (id INTEGER PRIMARY KEY, name TEXT, price INTEGER);"

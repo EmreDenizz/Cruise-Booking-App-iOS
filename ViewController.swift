@@ -5,18 +5,27 @@
 //  @author Emre Deniz (301371047)
 //  @author Nkemjika Obi (301275091)
 //  @author Muindo Gituku (301372521)
-//  @date 2023-11-13
-//  @description iOS Project - Milestone 3
+//  @date 2023-11-27
+//  @description iOS Project - Milestone 4
 //  Github Repo: https://github.com/EmreDenizz/Cruise-Booking-App-iOS
 //
 
 import UIKit
 
 class SlashScreenController: UIViewController {
+    
+    // Database objects
+    var db = CruiseDBManager()
+    var cruises = Array<Cruise>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        // Add cruises to DB.cruises table once
+        db.insertCruise(id: 1, name: "The Bahamas", price: 400)
+        db.insertCruise(id: 2, name: "Santorini", price: 500)
+        db.insertCruise(id: 3, name: "Kauai Maui", price: 600)
+        db.insertCruise(id: 4, name: "The Maldives", price: 700)
     }
     
     // Login button
@@ -48,6 +57,4 @@ class SlashScreenController: UIViewController {
         present(control, animated: true)
     }
 
-
 }
-

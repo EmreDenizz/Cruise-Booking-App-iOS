@@ -2,7 +2,12 @@
 //  ProfileViewController.swift
 //  Team3_MAPD714_Project-Milestone2
 //
-//  Created by Emre Deniz on 2023-11-20.
+//  @author Emre Deniz (301371047)
+//  @author Nkemjika Obi (301275091)
+//  @author Muindo Gituku (301372521)
+//  @date 2023-11-27
+//  @description iOS Project - Milestone 4
+//  Github Repo: https://github.com/EmreDenizz/Cruise-Booking-App-iOS
 //
 
 import UIKit
@@ -12,18 +17,6 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

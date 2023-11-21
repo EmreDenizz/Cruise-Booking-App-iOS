@@ -43,6 +43,22 @@ class CruiseDBManager{
         
     }
     
+    // Insert into user table
+    func insertUser(){
+        
+    }
+    
+    // Get user from User table
+    func getUser(id:Int) -> [User] {
+        var user : [User] = []
+        return user
+    }
+
+    // Update user on User table
+    func updateUser(id:Int) {
+        
+    }
+    
     // Create cruise table
     func createCruiseTable(){
         var createTableString = "CREATE TABLE IF NOT EXISTS Cruise (id INTEGER PRIMARY KEY, name TEXT, price INTEGER);"
@@ -95,13 +111,13 @@ class CruiseDBManager{
     func getCruises() -> [Cruise] {
         let queryStatementString = "SELECT * FROM Cruise;"
         var queryStatement: OpaquePointer? = nil
-        var prods : [Cruise] = []
+        var cruises : [Cruise] = []
         if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
             while sqlite3_step(queryStatement) == SQLITE_ROW {
                 let id = sqlite3_column_int(queryStatement, 0)
                 let name = String(describing: String(cString: sqlite3_column_text(queryStatement, 1)))
                 let price = sqlite3_column_int(queryStatement, 2)
-                prods.append(Cruise(id: Int(id), name: name, price: Int(price)))
+                cruises.append(Cruise(id: Int(id), name: name, price: Int(price)))
                 print("Cruise Details:")
                 print("\(id) | \(name) | \(price)")
             }
@@ -109,7 +125,7 @@ class CruiseDBManager{
             print("SELECT statement failed to proceed!!!")
         }
         sqlite3_finalize(queryStatement)
-        return prods
+        return cruises
     }
     
     // Delete from Cruise table

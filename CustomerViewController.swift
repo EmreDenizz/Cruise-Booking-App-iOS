@@ -5,8 +5,8 @@
 //  @author Emre Deniz (301371047)
 //  @author Nkemjika Obi (301275091)
 //  @author Muindo Gituku (301372521)
-//  @date 2023-11-13
-//  @description iOS Project - Milestone 3
+//  @date 2023-11-27
+//  @description iOS Project - Milestone 4
 //  Github Repo: https://github.com/EmreDenizz/Cruise-Booking-App-iOS
 //
 

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rk4-wW-wNz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rk4-wW-wNz">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -23,19 +24,7 @@
                                     <constraint firstAttribute="height" constant="44" id="A0W-2g-g7e"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="Home" id="mqz-4i-K5x">
-                                        <connections>
-                                            <action selector="homeButtonAction:" destination="BYZ-38-t0r" id="v2M-P9-eLf"/>
-                                            <segue destination="9CW-2u-89J" kind="show" id="XqQ-21-gcm"/>
-                                        </connections>
-                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="YsC-ih-WPP"/>
-                                    <barButtonItem title="Search" id="Oi0-aB-Rrf">
-                                        <connections>
-                                            <action selector="searchButtonAction:" destination="BYZ-38-t0r" id="Rgd-8E-29o"/>
-                                            <segue destination="Qqb-4a-OSy" kind="show" id="xBT-fe-uSQ"/>
-                                        </connections>
-                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Hqp-Gd-avo"/>
                                     <barButtonItem title="Login" id="rwa-ea-fGQ">
                                         <connections>
@@ -147,14 +136,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2b-AE-yhA">
-                                <rect key="frame" x="16" y="684.33333333333337" width="361" height="34"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Cancel"/>
-                                <connections>
-                                    <action selector="cancelButtonAction:" destination="1It-VY-nQz" eventType="touchUpInside" id="cKP-6S-fM6"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="84q-k9-akh">
                                 <rect key="frame" x="16" y="632" width="361" height="34.666666666666629"/>
                                 <color key="tintColor" name="AccentColor"/>
@@ -203,17 +184,21 @@
                             <constraint firstItem="AQC-4M-LW7" firstAttribute="trailing" secondItem="Lu4-1Z-gdq" secondAttribute="trailing" constant="258" id="eAs-ao-VmD"/>
                             <constraint firstItem="lu4-4N-x4V" firstAttribute="top" secondItem="AQC-4M-LW7" secondAttribute="top" constant="79" id="fn6-57-NtJ"/>
                             <constraint firstItem="Fuy-CM-oGZ" firstAttribute="leading" secondItem="AQC-4M-LW7" secondAttribute="leading" constant="16" id="g5q-qp-6NM"/>
-                            <constraint firstItem="AQC-4M-LW7" firstAttribute="trailing" secondItem="b2b-AE-yhA" secondAttribute="trailing" constant="16" id="jra-vc-0yR"/>
-                            <constraint firstItem="b2b-AE-yhA" firstAttribute="top" secondItem="84q-k9-akh" secondAttribute="bottom" constant="17.670000000000002" id="mFR-VR-Msp"/>
                             <constraint firstItem="XNL-tJ-Eya" firstAttribute="leading" secondItem="AQC-4M-LW7" secondAttribute="leading" constant="16" id="mnQ-yC-liM"/>
                             <constraint firstItem="Gog-RM-wDE" firstAttribute="leading" secondItem="AQC-4M-LW7" secondAttribute="leading" constant="17" id="nox-mF-fNa"/>
                             <constraint firstItem="lu4-4N-x4V" firstAttribute="leading" secondItem="AQC-4M-LW7" secondAttribute="leading" constant="17" id="p3S-Ap-W4m"/>
-                            <constraint firstItem="b2b-AE-yhA" firstAttribute="leading" secondItem="AQC-4M-LW7" secondAttribute="leading" constant="16" id="p6m-vz-Zxw"/>
                             <constraint firstItem="5ez-7Z-p5Z" firstAttribute="top" secondItem="TgC-0Q-Tx8" secondAttribute="bottom" constant="7" id="r5L-4z-8g8"/>
                             <constraint firstItem="AQC-4M-LW7" firstAttribute="trailing" secondItem="3FN-84-yli" secondAttribute="trailing" constant="283" id="xhe-9f-aKe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="oy5-Qp-zwf"/>
+                    <connections>
+                        <outlet property="EmailTextField" destination="2aW-hL-o9f" id="51P-tM-qsT"/>
+                        <outlet property="FirstNamextField" destination="Fuy-CM-oGZ" id="ZOl-NY-2bR"/>
+                        <outlet property="LastNameTextField" destination="5ez-7Z-p5Z" id="LcI-uG-D3C"/>
+                        <outlet property="PasswordTextField" destination="Gog-RM-wDE" id="XIh-vX-2NX"/>
+                        <outlet property="TermsAndConditionSwitch" destination="OIZ-8V-HaG" id="cVa-7V-x30"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="exO-hw-Oql" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -276,15 +261,6 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="QYp-mS-EOC">
                                 <rect key="frame" x="141" y="107.00000000000001" width="108" height="44.666666666666671"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHY-tZ-6qj">
-                                <rect key="frame" x="16" y="501.33333333333326" width="361" height="34"/>
-                                <color key="tintColor" systemColor="systemRedColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Cancel"/>
-                                <connections>
-                                    <action selector="cancelButtonAction:" destination="VVI-zy-ldQ" eventType="touchUpInside" id="gIC-L7-ZYT"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b77-Pu-NM8">
                                 <rect key="frame" x="15" y="202" width="62" height="29"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
@@ -311,17 +287,18 @@
                             <constraint firstItem="VOf-sN-Nn8" firstAttribute="top" secondItem="pKO-ft-P3f" secondAttribute="bottom" constant="33" id="cK2-me-GCo"/>
                             <constraint firstItem="5w2-E5-i0x" firstAttribute="trailing" secondItem="OSU-a7-HsN" secondAttribute="trailing" constant="292" id="clM-vB-jjH"/>
                             <constraint firstItem="5w2-E5-i0x" firstAttribute="trailing" secondItem="WpL-dH-1PP" secondAttribute="trailing" constant="327" id="dyJ-gm-Kls"/>
-                            <constraint firstItem="KHY-tZ-6qj" firstAttribute="leading" secondItem="5w2-E5-i0x" secondAttribute="leading" constant="16" id="erh-HY-Keb"/>
-                            <constraint firstItem="5w2-E5-i0x" firstAttribute="trailing" secondItem="KHY-tZ-6qj" secondAttribute="trailing" constant="16" id="fqc-9o-IVU"/>
                             <constraint firstItem="b77-Pu-NM8" firstAttribute="leading" secondItem="5w2-E5-i0x" secondAttribute="leading" constant="15" id="gUd-04-FQj"/>
                             <constraint firstItem="5w2-E5-i0x" firstAttribute="trailing" secondItem="VOf-sN-Nn8" secondAttribute="trailing" constant="16" id="hJ5-62-fLD"/>
                             <constraint firstItem="T8p-fq-e81" firstAttribute="leading" secondItem="5w2-E5-i0x" secondAttribute="leading" constant="15" id="q3G-LI-vpX"/>
                             <constraint firstItem="T8p-fq-e81" firstAttribute="top" secondItem="WpL-dH-1PP" secondAttribute="bottom" constant="8" symbolic="YES" id="sX8-vB-zxh"/>
-                            <constraint firstItem="KHY-tZ-6qj" firstAttribute="top" secondItem="VOf-sN-Nn8" secondAttribute="bottom" constant="20.670000000000002" id="tMr-oX-LO0"/>
                             <constraint firstItem="OSU-a7-HsN" firstAttribute="top" secondItem="T8p-fq-e81" secondAttribute="bottom" constant="22" id="tOO-DV-KRT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fYG-Ke-VVB"/>
+                    <connections>
+                        <outlet property="EmailTextField" destination="T8p-fq-e81" id="hpd-ku-Xwc"/>
+                        <outlet property="PasswordTextField" destination="pKO-ft-P3f" id="dnG-8G-Sap"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tow-QI-QD0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -332,7 +309,7 @@
             <objects>
                 <viewController storyboardIdentifier="search" id="Qqb-4a-OSy" customClass="SearchViewController" customModule="Team3_MAPD714_Project_Milestone2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Sg-yg-EEF">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="jPR-Pr-a4M">
@@ -1756,9 +1733,6 @@ Kauai, Maui and Moorea</string>
             <point key="canvasLocation" x="78.625954198473281" y="-27.464788732394368"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="nCB-H6-9xa"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="apple_pay" width="576" height="512"/>
         <image name="credit" width="576" height="512"/>
@@ -1780,13 +1754,13 @@ Kauai, Maui and Moorea</string>
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

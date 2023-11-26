@@ -42,19 +42,5 @@ class SlashScreenController: UIViewController {
         
         present(control, animated: true)
     }
-    
-    // Search button
-    @IBAction func searchButtonAction (_ sender: Any) {
-        let control = storyboard?.instantiateViewController(withIdentifier: "search") as! SearchViewController
-        
-        present(control, animated: true)
-    }
-    
-    //Home button
-    @IBAction func homeButtonAction (_ sender: Any) {
-        let control = storyboard?.instantiateViewController(withIdentifier: "home_view") as! HomeViewController
-        
-        present(control, animated: true)
-    }
 
 }

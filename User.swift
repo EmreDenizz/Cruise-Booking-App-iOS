@@ -27,10 +27,10 @@ class User{
         self.id = id
         self.first_name = first_name
         self.last_name = last_name
-        self.email = last_name
-        self.password = last_name
-        self.address = last_name
-        self.city = last_name
-        self.country = last_name
+        self.email = email
+        self.password = password
+        self.address = address
+        self.city = city
+        self.country = country
     }
 }

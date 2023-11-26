@@ -25,7 +25,7 @@ class CruiseDBManager{
     
     // Create DB
     func openDatabase()->OpaquePointer?{
-        var filePath = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent(dataPath)
+        let filePath = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent(dataPath)
         
         var db: OpaquePointer? = nil
         if sqlite3_open(filePath.path, &db) != SQLITE_OK{
@@ -39,18 +39,131 @@ class CruiseDBManager{
     }
     
     // Create users table
-    func createUserTable(){
-        
+    func createUserTable() {
+        let createTableString = """
+            CREATE TABLE IF NOT EXISTS User (
+                id INTEGER PRIMARY KEY,
+                first_name TEXT,
+                last_name TEXT,
+                email TEXT,
+                password TEXT,
+                address TEXT,
+                city TEXT,
+                country TEXT
+            );
+        """
+
+        var createTableStatement: OpaquePointer? = nil
+
+        if sqlite3_prepare_v2(db, createTableString, -1, &createTableStatement, nil) == SQLITE_OK {
+            if sqlite3_step(createTableStatement) == SQLITE_DONE {
+                print("User table created successfully")
+            } else {
+                print("User table creation failed")
+            }
+        } else {
+            print("Failed to create User table")
+        }
+
+        sqlite3_finalize(createTableStatement)
     }
+
     
     // Insert into user table
-    func insertUser(){
+    func insertUser(id: Int, first_name: String, last_name: String, email: String, password: String) -> Bool{
+        let users = getAllUsers()
         
+        for user in users{
+            if user.id == id{
+                return false
+            }
+        }
+        
+        let insertStatementString = "INSERT INTO User (id, first_name, last_name, email, password, address, city, country) VALUES (?, ?, ?, ?, ?, ?, ?, ?);"
+        var insertStatement: OpaquePointer? = nil
+        
+        if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
+            sqlite3_bind_int(insertStatement, 1, Int32(id))
+            sqlite3_bind_text(insertStatement, 2, (first_name as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 3, (last_name as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 4, (email as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 5, (password as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 6, "", -1, nil)
+            sqlite3_bind_text(insertStatement, 7, "", -1, nil)
+            sqlite3_bind_text(insertStatement, 8, "", -1, nil)
+
+            if sqlite3_step(insertStatement) == SQLITE_DONE {
+                print(" User created successfully!")
+                sqlite3_finalize(insertStatement)
+                return true
+            } else {
+                print("Couldn't add any row?")
+                return false
+            }
+        } else {
+            print("INSERT statement failed to succeed!!!")
+            return false
+        }
+    }
+    
+    // Login user
+    func loginUser(email: String, password: String) -> Bool {
+        let queryStatementString = "SELECT * FROM User WHERE email = ? AND password = ?;"
+        var queryStatement: OpaquePointer? = nil
+        var loginSuccessful = false
+
+        if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
+            sqlite3_bind_text(queryStatement, 1, (email as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(queryStatement, 2, (password as NSString).utf8String, -1, nil)
+
+            if sqlite3_step(queryStatement) == SQLITE_ROW {
+                // User found with matching email and password
+                loginSuccessful = true
+                print("Login successful for user with email: \(email)")
+            } else {
+                // No user found with matching email and password
+                print("Login failed. Invalid email or password.")
+            }
+        } else {
+            print("SELECT statement failed to proceed!!!")
+        }
+
+        sqlite3_finalize(queryStatement)
+        return loginSuccessful
+    }
+
+    
+    
+    // Get all the users from User table
+    func getAllUsers() -> [User] {
+        let queryStatementString = "SELECT * FROM User;"
+        var queryStatement: OpaquePointer? = nil
+        var users : [User] = []
+        if sqlite3_prepare_v2(db,  queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
+            while sqlite3_step(queryStatement) == SQLITE_ROW {
+                let id = sqlite3_column_int(queryStatement, 0)
+                let first_name = String(describing: String(cString: sqlite3_column_text(queryStatement, 1)))
+                let last_name = String(describing: String(cString: sqlite3_column_text(queryStatement, 2)))
+                let email = String(describing: String(cString: sqlite3_column_text(queryStatement, 3)))
+                let password = String(describing: String(cString: sqlite3_column_text(queryStatement, 4)))
+                let address = String(describing: String(cString: sqlite3_column_text(queryStatement, 5)))
+                let city = String(describing: String(cString: sqlite3_column_text(queryStatement, 6)))
+                let country = String(describing: String(cString: sqlite3_column_text(queryStatement, 7)))
+                
+                users.append(User(id: Int(id), first_name: first_name, last_name: last_name, email: email, password: password, address: "", city: city, country: country))
+                print("User Details:")
+                print("\(id) | \(first_name) | \(last_name) | \(email) | \(password) | \(address) \(city) | \(country)")
+            }
+        } else {
+            print("SELECT statement failed to proceed!!!")
+        }
+        sqlite3_finalize(queryStatement)
+        return users
     }
     
     // Get user from User table
     func getUser(id:Int) -> [User] {
-        var user : [User] = []
+        let user : [User] = []
         return user
     }
 
@@ -66,7 +179,7 @@ class CruiseDBManager{
     
     // Create cruise table
     func createCruiseTable(){
-        var createTableString = "CREATE TABLE IF NOT EXISTS Cruise (id INTEGER PRIMARY KEY, name TEXT, price INTEGER);"
+        let createTableString = "CREATE TABLE IF NOT EXISTS Cruise (id INTEGER PRIMARY KEY, name TEXT, price INTEGER);"
         
         var createTableStatement: OpaquePointer? = nil
         

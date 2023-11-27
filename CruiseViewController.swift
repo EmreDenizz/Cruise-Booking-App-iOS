@@ -25,6 +25,7 @@ class CruiseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         CruiseNameLabel.text = cruiseName
         CruisePriceLabel.text = "$" + cruisePrice!

@@ -27,8 +27,12 @@ class PaymentViewController: UIViewController {
     var cruiseName: String?
     var cruisePrice: String?
     
+    @IBOutlet weak var cardNumber: UITextField!
+    @IBOutlet weak var expiryMonth: UITextField!
+    @IBOutlet weak var expiryYear: UITextField!
+    @IBOutlet weak var nameOnCard: UITextField!
+    
     @IBOutlet weak var proceedButton: UIButton!
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,21 +59,36 @@ class PaymentViewController: UIViewController {
     
     @IBAction func onProceed(_ sender: UIButton) {
         
-        // Instantiate the confirm view
-        let confirmView = storyboard?.instantiateViewController(identifier: "confirm") as! ConfirmViewController
+        //If they are all empty, show an alert to the user
+        if self.cardNumber.text!.isEmpty || self.expiryMonth.text!.isEmpty || self.expiryYear.text!.isEmpty || self.nameOnCard.text!.isEmpty {
+            
+            let alert = UIAlertController(title: "Incomplete form!",
+                message:"Please, all fields are required", preferredStyle: .alert)
+            
+            let clearAction = UIAlertAction(title: "Rectify", style: .cancel, handler: nil)
+            
+            alert.addAction(clearAction)
+
+            present(alert, animated: true, completion: nil)
+        }
+        else{
+            // Instantiate the confirm view
+            let confirmView = storyboard?.instantiateViewController(identifier: "confirm") as! ConfirmViewController
+            
+            //Pass details to confirm view screen
+            confirmView.customerValue = customerValue
+            confirmView.addressValue = addressValue
+            confirmView.cityValue = cityValue
+            confirmView.countryValue = countryValue
+            confirmView.adultValue = adultValue
+            confirmView.childrenValue = childrenValue
+            confirmView.seniorValue = seniorValue
+            confirmView.cruiseName = cruiseName
+            confirmView.cruisePrice = cruisePrice
+            
+            self.navigationController?.pushViewController(confirmView, animated: true)
+        }
         
-        //Pass details to confirm view screen
-        confirmView.customerValue = customerValue
-        confirmView.addressValue = addressValue
-        confirmView.cityValue = cityValue
-        confirmView.countryValue = countryValue
-        confirmView.adultValue = adultValue
-        confirmView.childrenValue = childrenValue
-        confirmView.seniorValue = seniorValue
-        confirmView.cruiseName = cruiseName
-        confirmView.cruisePrice = cruisePrice
-        
-        self.navigationController?.pushViewController(confirmView, animated: true)
     }
 
 }

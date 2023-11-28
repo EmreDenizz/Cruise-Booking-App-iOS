@@ -31,6 +31,58 @@ class PaymentTypeViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    @IBAction func onApplePay(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Apple Pay",
+            message:"", preferredStyle: .alert)
+        
+        // Instantiate the confirm view
+        let confirmView = storyboard?.instantiateViewController(identifier: "confirm") as! ConfirmViewController
+        
+        //Pass details to confirm view screen
+        confirmView.customerValue = customerValue
+        confirmView.addressValue = addressValue
+        confirmView.cityValue = cityValue
+        confirmView.countryValue = countryValue
+        confirmView.adultValue = adultValue
+        confirmView.childrenValue = childrenValue
+        confirmView.seniorValue = seniorValue
+        confirmView.cruiseName = cruiseName
+        confirmView.cruisePrice = cruisePrice
+        
+        let proceedAction = UIAlertAction(title: "Make Payment", style: .cancel) { [weak self] _ in
+            self?.navigationController?.pushViewController(confirmView, animated: true)
+        }
+        
+        alert.addAction(proceedAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func onGooglePay(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Google Pay",
+            message:"", preferredStyle: .alert)
+        
+        // Instantiate the confirm view
+        let confirmView = storyboard?.instantiateViewController(identifier: "confirm") as! ConfirmViewController
+        
+        //Pass details to confirm view screen
+        confirmView.customerValue = customerValue
+        confirmView.addressValue = addressValue
+        confirmView.cityValue = cityValue
+        confirmView.countryValue = countryValue
+        confirmView.adultValue = adultValue
+        confirmView.childrenValue = childrenValue
+        confirmView.seniorValue = seniorValue
+        confirmView.cruiseName = cruiseName
+        confirmView.cruisePrice = cruisePrice
+        
+        let proceedAction = UIAlertAction(title: "Make Payment", style: .cancel) { [weak self] _ in
+            self?.navigationController?.pushViewController(confirmView, animated: true)
+        }
+        
+        alert.addAction(proceedAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func onProceed(_ sender: UIButton) {
 
         // Instantiate the payment type view
@@ -50,6 +102,5 @@ class PaymentTypeViewController: UIViewController {
         self.navigationController?.pushViewController(paymentView, animated: true)
 
     }
-    
 
 }

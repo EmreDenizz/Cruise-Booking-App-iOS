@@ -1247,7 +1247,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Pay with Google Pay"/>
                                 <connections>
-                                    <action selector="onProceed:" destination="zSr-zy-YAU" eventType="touchUpInside" id="0IU-cZ-2B9"/>
+                                    <action selector="onGooglePay:" destination="zSr-zy-YAU" eventType="touchUpInside" id="8gz-Ms-O9a"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgy-4C-SoB">
@@ -1278,7 +1278,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Pay with Apple Pay"/>
                                 <connections>
-                                    <action selector="onProceed:" destination="zSr-zy-YAU" eventType="touchUpInside" id="WR5-66-GgP"/>
+                                    <action selector="onApplePay:" destination="zSr-zy-YAU" eventType="touchUpInside" id="331-st-KNJ"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="g_pay" translatesAutoresizingMaskIntoConstraints="NO" id="h4F-wY-FsX">

@@ -47,20 +47,11 @@ class LoginViewController: UIViewController {
             if cruiseDbManager.loginUser(email: self.EmailTextField.text!, password: self.PasswordTextField.text!) {
                 // Login successful, proceed to the next screen or perform necessary actions
                 print("Login successful!")
-                let alert = UIAlertController(title: "Login Success",
-                    message:"Your details have been authenticated", preferredStyle: .alert)
                 
-                let proceedAction = UIAlertAction(title: "Proceed", style: .cancel) { [weak self] _ in
-                    // Instantiate the home view
-                    let homeView = self?.storyboard?.instantiateViewController(identifier: "home_view") as! HomeViewController
-                    self?.navigationController?.pushViewController(homeView, animated: true)
-                }
-
-                alert.addAction(proceedAction)
-
-                present(alert, animated: true, completion: nil)
-
-               } else {
+                let homeView = self.storyboard?.instantiateViewController(identifier: "home_view") as! HomeViewController
+                self.navigationController?.pushViewController(homeView, animated: true)
+            }
+            else {
                    // Login failed
                    print("Login failed!")
                    let alert = UIAlertController(title: "Invalid Details!",
@@ -71,7 +62,7 @@ class LoginViewController: UIViewController {
                    alert.addAction(clearAction)
 
                    present(alert, animated: true, completion: nil)
-               }
+           }
         }
     }
 }

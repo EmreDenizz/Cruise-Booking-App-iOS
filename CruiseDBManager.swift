@@ -5,7 +5,7 @@
 //  @author Emre Deniz (301371047)
 //  @author Nkemjika Obi (301275091)
 //  @author Muindo Gituku (301372521)
-//  @date 2023-11-27
+//  @date 2023-12-01
 //  @description iOS Project - Milestone 4
 //  Github Repo: https://github.com/EmreDenizz/Cruise-Booking-App-iOS
 //
@@ -74,7 +74,7 @@ class CruiseDBManager{
         let users = getAllUsers()
         
         for user in users{
-            if user.id == id{
+            if user.id == id || user.email == email{
                 return false
             }
         }
@@ -132,8 +132,6 @@ class CruiseDBManager{
         return loginSuccessful
     }
 
-    
-    
     // Get all the users from User table
     func getAllUsers() -> [User] {
         let queryStatementString = "SELECT * FROM User;"
@@ -162,19 +160,60 @@ class CruiseDBManager{
     }
     
     // Get user from User table
-    func getUser(id:Int) -> [User] {
-        let user : [User] = []
+    func getUser(email:String) -> [User] {
+        let queryStatementString = "SELECT * FROM User WHERE email = ?;"
+        var queryStatement: OpaquePointer? = nil
+        var user : [User] = []
+        
+        if sqlite3_prepare_v2(db,  queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
+            sqlite3_bind_text(queryStatement, 1, (email as NSString).utf8String, -1, nil)
+            
+            if sqlite3_step(queryStatement) == SQLITE_ROW {
+                let id = sqlite3_column_int(queryStatement, 0)
+                let first_name = String(describing: String(cString: sqlite3_column_text(queryStatement, 1)))
+                let last_name = String(describing: String(cString: sqlite3_column_text(queryStatement, 2)))
+                let email = String(describing: String(cString: sqlite3_column_text(queryStatement, 3)))
+                let password = String(describing: String(cString: sqlite3_column_text(queryStatement, 4)))
+                let address = String(describing: String(cString: sqlite3_column_text(queryStatement, 5)))
+                let city = String(describing: String(cString: sqlite3_column_text(queryStatement, 6)))
+                let country = String(describing: String(cString: sqlite3_column_text(queryStatement, 7)))
+                
+                user.append(User(id: Int(id), first_name: first_name, last_name: last_name, email: email, password: password, address: address, city: city, country: country))
+                print("User Details:")
+                print("\(id) | \(first_name) | \(last_name) | \(email) | \(password) | \(address) \(city) | \(country)")
+            }
+        } else {
+            print("SELECT statement failed to proceed!!!")
+        }
+        sqlite3_finalize(queryStatement)
         return user
     }
 
     // Update user on User table
-    func updateUser(id:Int) {
+    func updateUser(first_name: String, last_name: String, address: String, city: String, country: String, email: String) -> Bool{
+        let updateStatementString = "UPDATE User SET first_name=?, last_name=?, address=?, city=?, country=? WHERE email=?;"
+        var updateStatement: OpaquePointer? = nil
         
-    }
-    
-    // Delete user on User table
-    func deleteUser(id:Int) {
-        
+        if sqlite3_prepare_v2(db, updateStatementString, -1, &updateStatement, nil) == SQLITE_OK {
+            sqlite3_bind_text(updateStatement, 1, (first_name as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(updateStatement, 2, (last_name as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(updateStatement, 3, (address as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(updateStatement, 4, (city as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(updateStatement, 5, (country as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(updateStatement, 6, (email as NSString).utf8String, -1, nil)
+
+            if sqlite3_step(updateStatement) == SQLITE_DONE {
+                print("User updated successfully!")
+                sqlite3_finalize(updateStatement)
+                return true
+            } else {
+                print("Couldn't update any row?")
+                return false
+            }
+        } else {
+            print("UPDATE statement failed to succeed!!!")
+            return false
+        }
     }
     
     // Create cruise table
@@ -198,7 +237,7 @@ class CruiseDBManager{
         sqlite3_finalize(createTableStatement)
     }
     
-    // Insert into cruise table
+    // Add new cruise table
     func insertCruise(id:Int, name:String, price:Int){
         let cruises = getCruises()
         for cruise in cruises{
@@ -246,7 +285,7 @@ class CruiseDBManager{
         return cruises
     }
     
-    // Delete from Cruise table
+    // Delete a cruise from Cruise table
     func deleteCruiseByID(id:Int) {
         let deleteStatementStirng = "DELETE FROM Cruise WHERE id = ?;"
         var deleteStatement: OpaquePointer? = nil

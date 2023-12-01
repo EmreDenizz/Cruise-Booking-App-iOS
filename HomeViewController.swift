@@ -5,7 +5,7 @@
 //  @author Emre Deniz (301371047)
 //  @author Nkemjika Obi (301275091)
 //  @author Muindo Gituku (301372521)
-//  @date 2023-11-27
+//  @date 2023-12-01
 //  @description iOS Project - Milestone 4
 //  Github Repo: https://github.com/EmreDenizz/Cruise-Booking-App-iOS
 //
@@ -17,6 +17,7 @@ class HomeViewController: UIViewController {
     //Reference to the cruise image
     //@IBOutlet weak var cruiseImageView1: UIImageView!
     
+    // import db manager
     var db = CruiseDBManager()
     var cruises = Array<Cruise>()
     
@@ -32,7 +33,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         // Get cruises from DB
         cruises = db.getCruises()
         
@@ -46,7 +46,12 @@ class HomeViewController: UIViewController {
         cruise_4_name.text = cruises[3].name
         cruise_4_price.text = "$ "+String(cruises[3].price)
     }
-    
+    // My profile button action
+    @IBAction func myProfileButton(_ sender: UIButton) {
+        let profileView = storyboard?.instantiateViewController(identifier: "profile") as! ProfileViewController
+        self.navigationController?.pushViewController(profileView, animated: true)
+    }
+    // First cruise button action
     @IBAction func firstCruiseButtonAction(_ sender: UIButton) {
         // Instantiate the customer view
         let cruiseView = storyboard?.instantiateViewController(identifier: "cruise") as! CruiseViewController
@@ -57,7 +62,7 @@ class HomeViewController: UIViewController {
         
         self.navigationController?.pushViewController(cruiseView, animated: true)
     }
-    
+    // Second cruise button action
     @IBAction func secondCruiseButtonAction(_ sender: UIButton) {
         // Instantiate the customer view
         let cruiseView = storyboard?.instantiateViewController(identifier: "cruise") as! CruiseViewController
@@ -68,7 +73,7 @@ class HomeViewController: UIViewController {
         
         self.navigationController?.pushViewController(cruiseView, animated: true)
     }
-    
+    // Third cruise button action
     @IBAction func thirdCruiseButtonAction(_ sender: UIButton) {
         // Instantiate the customer view
         let cruiseView = storyboard?.instantiateViewController(identifier: "cruise") as! CruiseViewController
@@ -79,7 +84,7 @@ class HomeViewController: UIViewController {
         
         self.navigationController?.pushViewController(cruiseView, animated: true)
     }
-    
+    // Forth cruise button action
     @IBAction func fourthCruiseButtonAction(_ sender: UIButton) {
         // Instantiate the customer view
         let cruiseView = storyboard?.instantiateViewController(identifier: "cruise") as! CruiseViewController

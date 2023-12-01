@@ -5,7 +5,7 @@
 //  @author Emre Deniz (301371047)
 //  @author Nkemjika Obi (301275091)
 //  @author Muindo Gituku (301372521)
-//  @date 2023-11-27
+//  @date 2023-12-01
 //  @description iOS Project - Milestone 4
 //  Github Repo: https://github.com/EmreDenizz/Cruise-Booking-App-iOS
 //
@@ -33,6 +33,9 @@ class RegisterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // get all users to just write to output
+        cruiseDbManager.getAllUsers()
         
         // Add a label descriptions to accept terms programmatically
         let lbl = UILabel(frame: CGRect(x: 100, y: 0, width: 300, height: 21))
@@ -90,16 +93,13 @@ class RegisterViewController: UIViewController {
                 let alert = UIAlertController(title: "Register Success",
                     message:"Your details have been registered", preferredStyle: .alert)
                 
-                let proceedAction = UIAlertAction(title: "Proceed", style: .cancel) { [weak self] _ in
+                let proceedAction = UIAlertAction(title: "Login", style: .cancel) { [weak self] _ in
                     // Instantiate the login view
                     let loginView = self?.storyboard?.instantiateViewController(identifier: "login") as! LoginViewController
                     self?.navigationController?.pushViewController(loginView, animated: true)
                 }
-
                 alert.addAction(proceedAction)
-
                 present(alert, animated: true, completion: nil)
-            
                 
              } else {
                  // Show an alert

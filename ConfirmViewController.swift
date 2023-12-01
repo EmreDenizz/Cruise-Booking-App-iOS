@@ -5,7 +5,7 @@
 //  @author Emre Deniz (301371047)
 //  @author Nkemjika Obi (301275091)
 //  @author Muindo Gituku (301372521)
-//  @date 2023-11-27
+//  @date 2023-12-01
 //  @description iOS Project - Milestone 4
 //  Github Repo: https://github.com/EmreDenizz/Cruise-Booking-App-iOS
 //
@@ -40,7 +40,6 @@ class ConfirmViewController: UIViewController {
     var childrenValue: String?
     var seniorValue: String?
     
-    
     var customerValue: String?
     var addressValue: String?
     var cityValue: String?
@@ -50,13 +49,8 @@ class ConfirmViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        print(customerValue!)
-
-
-//        if adultValue != nil && childrenValue != nil && seniorValue != nil && customerValue != nil && addressValue != nil && cityValue != nil && countryValue != nil {
-//            
-//        }
         
+        // Set outputs on screen
         CustomerNameLabel.text = customerValue
         AddressLabel.text = addressValue
         CityLabel.text = cityValue
@@ -70,10 +64,6 @@ class ConfirmViewController: UIViewController {
         
         let totalGuests = Int(adult + children + senior)
         GuestLabel.text = "\(totalGuests) guests"
-    
-
-
-        
     }
 
 }

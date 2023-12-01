@@ -5,7 +5,7 @@
 //  @author Emre Deniz (301371047)
 //  @author Nkemjika Obi (301275091)
 //  @author Muindo Gituku (301372521)
-//  @date 2023-11-27
+//  @date 2023-12-01
 //  @description iOS Project - Milestone 4
 //  Github Repo: https://github.com/EmreDenizz/Cruise-Booking-App-iOS
 //
@@ -18,8 +18,6 @@ class PaymentTypeViewController: UIViewController {
     var adultValue: String?
     var childrenValue: String?
     var seniorValue: String?
-    
-    
     var customerValue: String?
     var addressValue: String?
     var cityValue: String?
@@ -30,7 +28,7 @@ class PaymentTypeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+    // Apple button action
     @IBAction func onApplePay(_ sender: UIButton) {
         let alert = UIAlertController(title: "Apple Pay",
             message:"", preferredStyle: .alert)
@@ -56,7 +54,7 @@ class PaymentTypeViewController: UIViewController {
         alert.addAction(proceedAction)
         present(alert, animated: true, completion: nil)
     }
-    
+    // Google button action
     @IBAction func onGooglePay(_ sender: UIButton) {
         let alert = UIAlertController(title: "Google Pay",
             message:"", preferredStyle: .alert)
@@ -82,7 +80,7 @@ class PaymentTypeViewController: UIViewController {
         alert.addAction(proceedAction)
         present(alert, animated: true, completion: nil)
     }
-    
+    // Credit card button action
     @IBAction func onProceed(_ sender: UIButton) {
 
         // Instantiate the payment type view

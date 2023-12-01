@@ -5,7 +5,7 @@
 //  @author Emre Deniz (301371047)
 //  @author Nkemjika Obi (301275091)
 //  @author Muindo Gituku (301372521)
-//  @date 2023-11-27
+//  @date 2023-12-01
 //  @description iOS Project - Milestone 4
 //  Github Repo: https://github.com/EmreDenizz/Cruise-Booking-App-iOS
 //
@@ -18,8 +18,6 @@ class PaymentViewController: UIViewController {
     var adultValue: String?
     var childrenValue: String?
     var seniorValue: String?
-    
-    
     var customerValue: String?
     var addressValue: String?
     var cityValue: String?
@@ -40,9 +38,9 @@ class PaymentViewController: UIViewController {
         designVisaImage()
         
         proceedButton.configuration?.title = "Pay $" + cruisePrice!
-        
     }
     
+    // Add credit card image programmatically
     func designVisaImage(){
         view.addSubview(theImageView)
         
@@ -57,6 +55,7 @@ class PaymentViewController: UIViewController {
         ])
     }
     
+    // Payment button action
     @IBAction func onProceed(_ sender: UIButton) {
         
         //If they are all empty, show an alert to the user

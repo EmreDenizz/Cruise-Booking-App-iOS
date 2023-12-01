@@ -5,7 +5,7 @@
 //  @author Emre Deniz (301371047)
 //  @author Nkemjika Obi (301275091)
 //  @author Muindo Gituku (301372521)
-//  @date 2023-11-27
+//  @date 2023-12-01
 //  @description iOS Project - Milestone 4
 //  Github Repo: https://github.com/EmreDenizz/Cruise-Booking-App-iOS
 //
@@ -24,8 +24,6 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     // Login button
@@ -48,20 +46,23 @@ class LoginViewController: UIViewController {
                 // Login successful, proceed to the next screen or perform necessary actions
                 print("Login successful!")
                 
+                // save current user email in UserDefaults
+                let defaults = UserDefaults.standard
+                defaults.removeObject(forKey: "currentUserEmail")
+                defaults.set(EmailTextField.text, forKey: "currentUserEmail")
+                
+                // Goto home page after successful login
                 let homeView = self.storyboard?.instantiateViewController(identifier: "home_view") as! HomeViewController
                 self.navigationController?.pushViewController(homeView, animated: true)
             }
             else {
-                   // Login failed
-                   print("Login failed!")
-                   let alert = UIAlertController(title: "Invalid Details!",
-                       message:"Your email or password is incorrect", preferredStyle: .alert)
-                   
-                   let clearAction = UIAlertAction(title: "Modify", style: .cancel, handler: nil)
-                   
-                   alert.addAction(clearAction)
-
-                   present(alert, animated: true, completion: nil)
+               // Login failed
+               print("Login failed!")
+               let alert = UIAlertController(title: "Invalid Details!",
+                   message:"Your email or password is incorrect", preferredStyle: .alert)
+               let clearAction = UIAlertAction(title: "Modify", style: .cancel, handler: nil)
+               alert.addAction(clearAction)
+               present(alert, animated: true, completion: nil)
            }
         }
     }

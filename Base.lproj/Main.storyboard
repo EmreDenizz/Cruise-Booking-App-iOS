@@ -24,6 +24,7 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="registerButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vKk-kv-mJm"/>
                                     <segue destination="1It-VY-nQz" kind="show" id="VbO-e2-gnO"/>
                                 </connections>
                             </button>
@@ -42,6 +43,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Get Started"/>
                                 <connections>
+                                    <action selector="loginButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f3x-nR-8Bh"/>
                                     <segue destination="VVI-zy-ldQ" kind="show" id="nGO-Rn-yD2"/>
                                 </connections>
                             </button>

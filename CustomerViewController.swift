@@ -5,7 +5,7 @@
 //  @author Emre Deniz (301371047)
 //  @author Nkemjika Obi (301275091)
 //  @author Muindo Gituku (301372521)
-//  @date 2023-11-27
+//  @date 2023-12-01
 //  @description iOS Project - Milestone 4
 //  Github Repo: https://github.com/EmreDenizz/Cruise-Booking-App-iOS
 //
@@ -13,6 +13,13 @@
 import UIKit
 
 class CustomerViewController: UIViewController {
+    
+    // import db
+    var db = CruiseDBManager()
+    var user = Array<User>()
+    
+    // Get UserDefaults
+    let defaults = UserDefaults.standard
     
     //Reference to the customer text field
     @IBOutlet weak var CustomerNameTextField: UITextField!
@@ -35,12 +42,21 @@ class CustomerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
-    }
-    
-    @IBAction func onProceed(_ sender: UIButton) {
         
+        // Get current user email
+        let currentUserEmail = defaults.string(forKey: "currentUserEmail")
+        
+        // Get current user info from db
+        user = db.getUser(email: currentUserEmail!)
+        
+        // Set name, address, city and country values from db
+        CustomerNameTextField.text = user[0].first_name + " " + user[0].last_name
+        AddressTextField.text = user[0].address
+        CityTextField.text = user[0].city
+        CountryTextField.text = user[0].country
+    }
+    // Proceed to payment button action
+    @IBAction func onProceed(_ sender: UIButton) {
         
         //If they are all empty, show an alert to the user
         if self.CustomerNameTextField.text!.isEmpty || self.AddressTextField.text!.isEmpty || self.CityTextField.text!.isEmpty || self.CountryTextField.text!.isEmpty {
@@ -73,6 +89,5 @@ class CustomerViewController: UIViewController {
         }
 
     }
-    
 
 }

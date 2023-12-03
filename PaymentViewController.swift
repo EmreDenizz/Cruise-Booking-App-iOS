@@ -62,11 +62,41 @@ class PaymentViewController: UIViewController {
         if self.cardNumber.text!.isEmpty || self.expiryMonth.text!.isEmpty || self.expiryYear.text!.isEmpty || self.nameOnCard.text!.isEmpty {
             
             let alert = UIAlertController(title: "Incomplete form!",
-                message:"Please, all fields are required", preferredStyle: .alert)
+                message:"Please, all fields are required.", preferredStyle: .alert)
             
             let clearAction = UIAlertAction(title: "Rectify", style: .cancel, handler: nil)
             
             alert.addAction(clearAction)
+
+            present(alert, animated: true, completion: nil)
+        }
+        // validate card number
+        else if self.cardNumber.text!.count != 16 {
+            let alert = UIAlertController(title: "Invalid Card Number",
+                                          message: "Please enter a 16 digit valid credit card number.",
+                                          preferredStyle: .alert)
+            let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alert.addAction(okayAction)
+
+            present(alert, animated: true, completion: nil)
+        }
+        // validate expiry month
+        else if Int(self.expiryMonth.text!)! < 1 || Int(self.expiryMonth.text!)! > 12 {
+            let alert = UIAlertController(title: "Invalid Card Expiry Date",
+                                          message: "Please enter a valid card expiry dates.",
+                                          preferredStyle: .alert)
+            let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alert.addAction(okayAction)
+
+            present(alert, animated: true, completion: nil)
+        }
+        // validate expiry year
+        else if Int(self.expiryYear.text!)! < 24 || Int(self.expiryYear.text!)! > 30 {
+            let alert = UIAlertController(title: "Invalid Card Expiry Date",
+                                          message: "Please enter a valid card expiry dates.",
+                                          preferredStyle: .alert)
+            let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alert.addAction(okayAction)
 
             present(alert, animated: true, completion: nil)
         }

@@ -30,6 +30,13 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var PasswordTextField: UITextField!
     
     var cruiseDbManager = CruiseDBManager()
+    
+    // Email validation function
+    func validateEmail(email: String) -> Bool {
+      let validationRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+      let emailValidationPredicate = NSPredicate(format: "SELF MATCHES %@", validationRegex)
+      return emailValidationPredicate.evaluate(with: email)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,8 +53,8 @@ class RegisterViewController: UIViewController {
     
     //Event handler for the terms and conditions switch
     @IBAction func onSwitchChanged(_ sender: UISwitch) { //value changed
-            let setting = sender.isOn
-            TermsAndConditionSwitch.setOn(setting, animated: true)
+        let setting = sender.isOn
+        TermsAndConditionSwitch.setOn(setting, animated: true)
     }
     
     // Register button
@@ -70,7 +77,27 @@ class RegisterViewController: UIViewController {
                                           message: "Please accept the terms and conditions",
                                           preferredStyle: .alert)
 
-            let okayAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+            let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alert.addAction(okayAction)
+
+            present(alert, animated: true, completion: nil)
+        }
+        // validate email
+        else if !validateEmail(email: self.EmailTextField.text!) {
+            let alert = UIAlertController(title: "Invalid Email",
+                                          message: "Please enter a valid email address.",
+                                          preferredStyle: .alert)
+            let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alert.addAction(okayAction)
+
+            present(alert, animated: true, completion: nil)
+        }
+        // validate password
+        else if self.PasswordTextField.text!.count < 8 {
+            let alert = UIAlertController(title: "Weak Password",
+                                          message: "Please enter a password at least 8 characters.",
+                                          preferredStyle: .alert)
+            let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             alert.addAction(okayAction)
 
             present(alert, animated: true, completion: nil)

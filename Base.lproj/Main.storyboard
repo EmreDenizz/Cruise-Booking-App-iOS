@@ -1468,6 +1468,9 @@
                                 <rect key="frame" x="18" y="678" width="361" height="34"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Return to Home"/>
+                                <connections>
+                                    <action selector="homeButtonAction:" destination="TYv-5h-2mA" eventType="touchUpInside" id="xyF-xh-JIT"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toronto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4E-kj-k1c">
                                 <rect key="frame" x="18" y="599" width="359" height="21"/>

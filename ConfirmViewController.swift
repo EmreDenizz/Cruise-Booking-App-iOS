@@ -65,5 +65,10 @@ class ConfirmViewController: UIViewController {
         let totalGuests = Int(adult + children + senior)
         GuestLabel.text = "\(totalGuests) guests"
     }
+    
+    @IBAction func homeButtonAction (_ sender: UIButton) {
+        let homeView = self.storyboard?.instantiateViewController(identifier: "home_view") as! HomeViewController
+        self.navigationController?.pushViewController(homeView, animated: true)
+    }
 
 }

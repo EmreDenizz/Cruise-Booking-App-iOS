@@ -24,6 +24,14 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // If there is current user logged in, redirect to Home screen
+        let defaults = UserDefaults.standard
+        let currentUserEmail = defaults.string(forKey: "currentUserEmail")
+        if currentUserEmail != nil{
+            let homeView = self.storyboard?.instantiateViewController(identifier: "home_view") as! HomeViewController
+            self.navigationController?.pushViewController(homeView, animated: true)
+        }
     }
     
     // Login button

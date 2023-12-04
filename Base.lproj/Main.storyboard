@@ -1768,6 +1768,18 @@ Kauai, Maui and Moorea</string>
                                     <action selector="myProfileButton:" destination="9CW-2u-89J" eventType="touchUpInside" id="XzY-Sj-gG4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auQ-9d-E5G">
+                                <rect key="frame" x="16" y="699" width="361" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Logout">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="logoutButton:" destination="9CW-2u-89J" eventType="touchUpInside" id="zd5-Ni-PA0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pie-kT-N3y"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1779,6 +1791,7 @@ Kauai, Maui and Moorea</string>
                             <constraint firstItem="Gj1-Bm-Y6r" firstAttribute="top" secondItem="3Ik-3f-red" secondAttribute="bottom" constant="5" id="34f-hM-pgO"/>
                             <constraint firstItem="6T3-4r-InP" firstAttribute="leading" secondItem="8iH-QK-TXp" secondAttribute="trailing" constant="25" id="3FP-Sw-2Lt"/>
                             <constraint firstItem="pie-kT-N3y" firstAttribute="trailing" secondItem="nGX-g7-FLM" secondAttribute="trailing" constant="16" id="45L-E8-nxL"/>
+                            <constraint firstItem="pie-kT-N3y" firstAttribute="trailing" secondItem="auQ-9d-E5G" secondAttribute="trailing" constant="16" id="4AG-ea-WKQ"/>
                             <constraint firstItem="UPf-q5-cwY" firstAttribute="top" secondItem="9Zw-ee-Cn2" secondAttribute="bottom" constant="10" id="4Wm-Q4-fAF"/>
                             <constraint firstItem="iQs-Ta-Weh" firstAttribute="leading" secondItem="pie-kT-N3y" secondAttribute="leading" constant="16" id="52H-9J-069"/>
                             <constraint firstItem="6kB-af-Vdl" firstAttribute="top" secondItem="Gj1-Bm-Y6r" secondAttribute="bottom" constant="10" id="557-jB-ttP"/>
@@ -1792,9 +1805,11 @@ Kauai, Maui and Moorea</string>
                             <constraint firstItem="pie-kT-N3y" firstAttribute="trailing" secondItem="HcN-SZ-YJv" secondAttribute="trailing" constant="16" id="9Jz-pc-QMA"/>
                             <constraint firstItem="Xuc-Pn-H6w" firstAttribute="width" secondItem="yBE-TA-b82" secondAttribute="width" id="Bdo-Am-uQe"/>
                             <constraint firstItem="muA-lN-UeM" firstAttribute="top" secondItem="knj-Jw-XhD" secondAttribute="bottom" constant="5" id="D0A-d5-o8x"/>
+                            <constraint firstItem="auQ-9d-E5G" firstAttribute="leading" secondItem="pie-kT-N3y" secondAttribute="leading" constant="16" id="D9m-Oc-pgD"/>
                             <constraint firstItem="6T3-4r-InP" firstAttribute="width" secondItem="yBE-TA-b82" secondAttribute="width" id="DwR-oh-l4S"/>
                             <constraint firstItem="nGX-g7-FLM" firstAttribute="top" secondItem="9Zw-ee-Cn2" secondAttribute="bottom" constant="10" id="E6j-GN-mnD"/>
                             <constraint firstItem="yBE-TA-b82" firstAttribute="leading" secondItem="pie-kT-N3y" secondAttribute="leading" constant="16" id="EPb-mO-lUg"/>
+                            <constraint firstItem="auQ-9d-E5G" firstAttribute="top" secondItem="iQs-Ta-Weh" secondAttribute="bottom" constant="48.329999999999998" id="Ffd-dA-VGC"/>
                             <constraint firstItem="6kB-af-Vdl" firstAttribute="top" secondItem="3gD-8m-Hip" secondAttribute="bottom" constant="10" id="G2n-dw-COH"/>
                             <constraint firstItem="6T3-4r-InP" firstAttribute="height" secondItem="yBE-TA-b82" secondAttribute="height" id="H2K-Ko-D4e"/>
                             <constraint firstItem="bud-TC-nxe" firstAttribute="top" secondItem="knj-Jw-XhD" secondAttribute="bottom" constant="5" id="H4z-s5-FdG"/>

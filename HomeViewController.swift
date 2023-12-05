@@ -95,12 +95,6 @@ class HomeViewController: UIViewController {
         
         self.navigationController?.pushViewController(cruiseView, animated: true)
     }
-    // Logout button
-    @IBAction func logoutButton(_ sender: UIButton) {
-        let defaults = UserDefaults.standard
-        defaults.removeObject(forKey: "currentUserEmail")
-        let splashView = storyboard?.instantiateViewController(identifier: "home") as! SlashScreenController
-        self.navigationController?.pushViewController(splashView, animated: true)
-    }
+    
 
 }

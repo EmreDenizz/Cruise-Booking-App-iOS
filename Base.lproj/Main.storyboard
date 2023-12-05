@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rk4-wW-wNz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rk4-wW-wNz">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -309,6 +310,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcD-UQ-eew">
+                                <rect key="frame" x="295" y="96" width="82" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Log out">
+                                    <color key="baseForegroundColor" systemColor="groupTableViewBackgroundColor"/>
+                                    <color key="baseBackgroundColor" systemColor="systemRedColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="logoutButton:" destination="CTx-X3-fFK" eventType="touchUpInside" id="REh-M6-58i"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Shd-NC-O8e"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -323,6 +335,7 @@
                             <constraint firstItem="Yap-n7-JBR" firstAttribute="leading" secondItem="Shd-NC-O8e" secondAttribute="leading" constant="13" id="C7A-wW-EA8"/>
                             <constraint firstItem="Shd-NC-O8e" firstAttribute="trailing" secondItem="DVe-ZO-df1" secondAttribute="trailing" constant="160.66999999999999" id="CTh-IY-onO"/>
                             <constraint firstItem="5Wf-RO-CCL" firstAttribute="top" secondItem="war-dW-rbF" secondAttribute="bottom" constant="30" id="FvF-Bf-0w1"/>
+                            <constraint firstItem="mcD-UQ-eew" firstAttribute="centerY" secondItem="DVe-ZO-df1" secondAttribute="centerY" id="Jsg-A5-Tau"/>
                             <constraint firstItem="Shd-NC-O8e" firstAttribute="trailing" secondItem="A0v-Xf-RRq" secondAttribute="trailing" constant="293" id="KGk-LG-4eX"/>
                             <constraint firstItem="Shd-NC-O8e" firstAttribute="trailing" secondItem="bYQ-U2-bu2" secondAttribute="trailing" constant="78" id="Ldh-eu-Rje"/>
                             <constraint firstItem="7gz-AB-vlL" firstAttribute="leading" secondItem="Shd-NC-O8e" secondAttribute="leading" constant="16" id="Lo7-Bm-233"/>
@@ -362,6 +375,7 @@
                             <constraint firstItem="D1m-jA-5QR" firstAttribute="leading" secondItem="Shd-NC-O8e" secondAttribute="leading" constant="16" id="uB7-vz-9wB"/>
                             <constraint firstItem="6iB-d6-7cM" firstAttribute="top" secondItem="OeQ-pb-niq" secondAttribute="bottom" constant="44.670000000000002" id="uUs-Ud-btL"/>
                             <constraint firstItem="D1m-jA-5QR" firstAttribute="top" secondItem="5nf-T5-5X7" secondAttribute="bottom" constant="6" id="vuC-AY-odm"/>
+                            <constraint firstItem="Shd-NC-O8e" firstAttribute="trailing" secondItem="mcD-UQ-eew" secondAttribute="trailing" constant="16" id="wp2-Sz-Bhn"/>
                             <constraint firstItem="bYQ-U2-bu2" firstAttribute="leading" secondItem="afy-nc-4n3" secondAttribute="trailing" constant="8" symbolic="YES" id="y5j-HC-JMt"/>
                             <constraint firstItem="afy-nc-4n3" firstAttribute="leading" secondItem="Shd-NC-O8e" secondAttribute="leading" constant="4" id="ygq-bV-FzC"/>
                         </constraints>
@@ -484,7 +498,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nv2-tL-8sa">
-                                <rect key="frame" x="169" y="149.66666666666666" width="667" height="100"/>
+                                <rect key="frame" x="169" y="149.66666666666666" width="519" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="L77-7D-elt"/>
                                 </constraints>
@@ -1759,25 +1773,12 @@ Kauai, Maui and Moorea</string>
                                 <color key="textColor" red="0.0089370087669999997" green="0.59023966269999995" blue="0.96611279250000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Be7-E1-VoF">
-                                <rect key="frame" x="16" y="96" width="100" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Be7-E1-VoF">
+                                <rect key="frame" x="277" y="85" width="100" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="My Profile"/>
                                 <connections>
                                     <action selector="myProfileButton:" destination="9CW-2u-89J" eventType="touchUpInside" id="XzY-Sj-gG4"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auQ-9d-E5G">
-                                <rect key="frame" x="16" y="699" width="361" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Logout">
-                                    <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" systemColor="systemRedColor"/>
-                                    </backgroundConfiguration>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="logoutButton:" destination="9CW-2u-89J" eventType="touchUpInside" id="zd5-Ni-PA0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1791,7 +1792,6 @@ Kauai, Maui and Moorea</string>
                             <constraint firstItem="Gj1-Bm-Y6r" firstAttribute="top" secondItem="3Ik-3f-red" secondAttribute="bottom" constant="5" id="34f-hM-pgO"/>
                             <constraint firstItem="6T3-4r-InP" firstAttribute="leading" secondItem="8iH-QK-TXp" secondAttribute="trailing" constant="25" id="3FP-Sw-2Lt"/>
                             <constraint firstItem="pie-kT-N3y" firstAttribute="trailing" secondItem="nGX-g7-FLM" secondAttribute="trailing" constant="16" id="45L-E8-nxL"/>
-                            <constraint firstItem="pie-kT-N3y" firstAttribute="trailing" secondItem="auQ-9d-E5G" secondAttribute="trailing" constant="16" id="4AG-ea-WKQ"/>
                             <constraint firstItem="UPf-q5-cwY" firstAttribute="top" secondItem="9Zw-ee-Cn2" secondAttribute="bottom" constant="10" id="4Wm-Q4-fAF"/>
                             <constraint firstItem="iQs-Ta-Weh" firstAttribute="leading" secondItem="pie-kT-N3y" secondAttribute="leading" constant="16" id="52H-9J-069"/>
                             <constraint firstItem="6kB-af-Vdl" firstAttribute="top" secondItem="Gj1-Bm-Y6r" secondAttribute="bottom" constant="10" id="557-jB-ttP"/>
@@ -1805,11 +1805,9 @@ Kauai, Maui and Moorea</string>
                             <constraint firstItem="pie-kT-N3y" firstAttribute="trailing" secondItem="HcN-SZ-YJv" secondAttribute="trailing" constant="16" id="9Jz-pc-QMA"/>
                             <constraint firstItem="Xuc-Pn-H6w" firstAttribute="width" secondItem="yBE-TA-b82" secondAttribute="width" id="Bdo-Am-uQe"/>
                             <constraint firstItem="muA-lN-UeM" firstAttribute="top" secondItem="knj-Jw-XhD" secondAttribute="bottom" constant="5" id="D0A-d5-o8x"/>
-                            <constraint firstItem="auQ-9d-E5G" firstAttribute="leading" secondItem="pie-kT-N3y" secondAttribute="leading" constant="16" id="D9m-Oc-pgD"/>
                             <constraint firstItem="6T3-4r-InP" firstAttribute="width" secondItem="yBE-TA-b82" secondAttribute="width" id="DwR-oh-l4S"/>
                             <constraint firstItem="nGX-g7-FLM" firstAttribute="top" secondItem="9Zw-ee-Cn2" secondAttribute="bottom" constant="10" id="E6j-GN-mnD"/>
                             <constraint firstItem="yBE-TA-b82" firstAttribute="leading" secondItem="pie-kT-N3y" secondAttribute="leading" constant="16" id="EPb-mO-lUg"/>
-                            <constraint firstItem="auQ-9d-E5G" firstAttribute="top" secondItem="iQs-Ta-Weh" secondAttribute="bottom" constant="48.329999999999998" id="Ffd-dA-VGC"/>
                             <constraint firstItem="6kB-af-Vdl" firstAttribute="top" secondItem="3gD-8m-Hip" secondAttribute="bottom" constant="10" id="G2n-dw-COH"/>
                             <constraint firstItem="6T3-4r-InP" firstAttribute="height" secondItem="yBE-TA-b82" secondAttribute="height" id="H2K-Ko-D4e"/>
                             <constraint firstItem="bud-TC-nxe" firstAttribute="top" secondItem="knj-Jw-XhD" secondAttribute="bottom" constant="5" id="H4z-s5-FdG"/>
@@ -1826,6 +1824,7 @@ Kauai, Maui and Moorea</string>
                             <constraint firstItem="tbe-Fs-mEP" firstAttribute="top" secondItem="Rxb-1K-Ap6" secondAttribute="bottom" constant="20" id="OkO-Vg-rjV"/>
                             <constraint firstItem="6T3-4r-InP" firstAttribute="top" secondItem="ebC-J7-Q6d" secondAttribute="bottom" constant="30" id="Pa8-MG-Ktm"/>
                             <constraint firstItem="yBE-TA-b82" firstAttribute="top" secondItem="tbe-Fs-mEP" secondAttribute="bottom" constant="20" id="QaH-CE-brd"/>
+                            <constraint firstItem="pie-kT-N3y" firstAttribute="trailing" secondItem="Be7-E1-VoF" secondAttribute="trailing" constant="16" id="S68-Hm-YeV"/>
                             <constraint firstItem="knj-Jw-XhD" firstAttribute="width" secondItem="yBE-TA-b82" secondAttribute="width" id="T7V-Wg-WPs"/>
                             <constraint firstItem="ebC-J7-Q6d" firstAttribute="top" secondItem="qr2-6C-KpN" secondAttribute="bottom" constant="10" id="UAb-vZ-pwX"/>
                             <constraint firstItem="9Zw-ee-Cn2" firstAttribute="leading" secondItem="yBE-TA-b82" secondAttribute="trailing" constant="25" id="UNK-xe-4CM"/>
@@ -1874,6 +1873,7 @@ Kauai, Maui and Moorea</string>
                             <constraint firstItem="8iH-QK-TXp" firstAttribute="top" secondItem="6kB-af-Vdl" secondAttribute="bottom" constant="30" id="rC5-ST-hPJ"/>
                             <constraint firstItem="d9F-Sh-Jyw" firstAttribute="top" secondItem="dNF-wC-ek7" secondAttribute="bottom" constant="10" id="rN1-qZ-ecM"/>
                             <constraint firstItem="1Iw-Zi-qIc" firstAttribute="top" secondItem="HcN-SZ-YJv" secondAttribute="bottom" constant="5" id="t7a-gi-kEu"/>
+                            <constraint firstItem="Be7-E1-VoF" firstAttribute="centerY" secondItem="Rxb-1K-Ap6" secondAttribute="centerY" id="tOE-Dh-hGk"/>
                             <constraint firstItem="6T3-4r-InP" firstAttribute="leading" secondItem="8iH-QK-TXp" secondAttribute="trailing" constant="25" id="uPH-v8-Xmj"/>
                             <constraint firstItem="8iH-QK-TXp" firstAttribute="width" secondItem="yBE-TA-b82" secondAttribute="width" id="vr0-To-EeH"/>
                             <constraint firstItem="qr2-6C-KpN" firstAttribute="top" secondItem="HcN-SZ-YJv" secondAttribute="bottom" constant="5" id="we6-Nr-shH"/>
@@ -1941,6 +1941,9 @@ Kauai, Maui and Moorea</string>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="scrollViewTexturedBackgroundColor">
             <color red="0.43529411764705883" green="0.44313725490196076" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

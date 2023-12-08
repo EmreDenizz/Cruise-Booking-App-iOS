@@ -23,12 +23,13 @@ Run on Simulator
 
 ### SCREENSHOTS:
 #### iPhone
-<kbd><img src="Screenshots/iPhone_1.png" height="500"/></kbd>    <kbd><img src="Screenshots/iPhone_2.png" height="500"/></kbd>    <kbd><img src="Screenshots/iPhone_3.png" height="500"/></kbd>
+<kbd><img src="Screenshots/iPhone_1.png" height="500"/></kbd>    <kbd><img src="Screenshots/iPhone_2.png" height="500"/></kbd>    <kbd><img src="Screenshots/iPhone_4.png" height="500"/></kbd>
 
-<kbd><img src="Screenshots/iPhone_5.png" height="500"/></kbd>    <kbd><img src="Screenshots/iPhone_7.png" height="500"/></kbd>    <kbd><img src="Screenshots/iPhone_8.png" height="500"/></kbd>
+<kbd><img src="Screenshots/iPhone_6.png" height="500"/></kbd>    <kbd><img src="Screenshots/iPhone_7.png" height="500"/></kbd>    <kbd><img src="Screenshots/iPhone_8.png" height="500"/></kbd>
 
-<kbd><img src="Screenshots/iPhone_9.png" height="500"/></kbd>    <kbd><img src="Screenshots/iPhone_10.png" height="500"/></kbd>
+<kbd><img src="Screenshots/iPhone_9.png" height="500"/></kbd>    <kbd><img src="Screenshots/iPhone_10.png" height="500"/></kbd>    <kbd><img src="Screenshots/iPhone_11.png" height="500"/></kbd>
 
+<kbd><img src="Screenshots/iPhone_12.png" height="500"/></kbd>    <kbd><img src="Screenshots/iPhone_13.png" height="500"/></kbd>
 #### iPad
 <kbd><img src="Screenshots/iPad_3.png" height="500"/></kbd>    <kbd><img src="Screenshots/iPad_6.png" height="500"/></kbd>
 

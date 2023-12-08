@@ -44,6 +44,16 @@ class GuestsViewController: UIViewController {
 
             present(alert, animated: true, completion: nil)
         }
+        else if self.AdultTextField.text!.isEmpty {
+            let alert = UIAlertController(title: "Incomplete form!",
+                message:"Please select at least one adult", preferredStyle: .alert)
+            
+            let clearAction = UIAlertAction(title: "Rectify", style: .cancel, handler: nil)
+            
+            alert.addAction(clearAction)
+
+            present(alert, animated: true, completion: nil)
+        }
         else {
             // Instantiate the customer view
             let customerView = storyboard?.instantiateViewController(identifier: "customer") as! CustomerViewController

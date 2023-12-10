@@ -1899,6 +1899,7 @@ Kauai, Maui and Moorea</string>
                         <outlet property="cruise_3_price" destination="bud-TC-nxe" id="1mq-Hx-jEy"/>
                         <outlet property="cruise_4_name" destination="HY8-YH-h7S" id="vGf-dl-9Zq"/>
                         <outlet property="cruise_4_price" destination="dNF-wC-ek7" id="GFE-b7-oS5"/>
+                        <outlet property="search" destination="tbe-Fs-mEP" id="lUK-gY-Fab"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nD0-5t-E7U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -29,6 +29,7 @@ class HomeViewController: UIViewController {
     @IBOutlet var cruise_3_price: UILabel!
     @IBOutlet var cruise_4_name: UILabel!
     @IBOutlet var cruise_4_price: UILabel!
+    @IBOutlet var search: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,8 @@ class HomeViewController: UIViewController {
         cruise_3_price.text = "$ "+String(cruises[2].price)
         cruise_4_name.text = cruises[3].name
         cruise_4_price.text = "$ "+String(cruises[3].price)
+        
+        search.isHidden = true
     }
     // My profile button action
     @IBAction func myProfileButton(_ sender: UIButton) {

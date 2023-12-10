@@ -28,8 +28,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var FirstNameTextField: UITextField!
     @IBOutlet weak var LastNameTextField: UITextField!
     @IBOutlet weak var AddressTextField: UITextField!
-    @IBOutlet weak var CityTextField: UITextField!
-    @IBOutlet weak var CountryTextField: UITextField!
     
     //countrypicker object
     @IBOutlet var countryPicker: UIPickerView!
@@ -41,7 +39,7 @@ class ProfileViewController: UIViewController {
     private let countryNames = ["Canada", "US"]
 
     //City name options
-    private var cityNames = ["Toronto", "Vancouver", "Alberta", "Saskatchewan", "Montreal", "Halifax", "Lethbridge", "Missisauga", "Hamilton"]
+    private var cityNames = ["Toronto", "Vancouver", "Alberta", "Saskatchewan", "Montreal", "Halifax", "Missisauga", "Hamilton"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,12 +51,12 @@ class ProfileViewController: UIViewController {
         user = db.getUser(email: currentUserEmail!)
         
         //set up datasource and delegate for country picker component
-//        countryPicker.dataSource = self
-//        countryPicker.delegate = self
-//        
-//        //set up datasource and delegate for city picker component
-//        cityPicker.dataSource = self
-//        cityPicker.delegate = self
+        countryPicker.dataSource = self
+        countryPicker.delegate = self
+        
+        //set up datasource and delegate for city picker component
+        cityPicker.dataSource = self
+        cityPicker.delegate = self
         
         emailLabel.text = currentUserEmail
         nameLabel.text = user[0].first_name + " " + user[0].last_name
@@ -68,41 +66,46 @@ class ProfileViewController: UIViewController {
         FirstNameTextField.text = user[0].first_name
         LastNameTextField.text = user[0].last_name
         AddressTextField.text = user[0].address
-        CityTextField.text = user[0].city
-        CountryTextField.text = user[0].country
         
         // Set the default values for the picker views
-//        if let countryIndex = countryNames.firstIndex(of: user[0].country) {
-//                countryPicker.selectRow(countryIndex, inComponent: 0, animated: false)
-//            }
-//
-//        if let cityIndex = cityNames.firstIndex(of: user[0].city) {
-//                cityPicker.selectRow(cityIndex, inComponent: 0, animated: false)
-//            }
+        if let countryIndex = countryNames.firstIndex(of: user[0].country) {
+            countryPicker.selectRow(countryIndex, inComponent: 0, animated: false)
+            
+            if user[0].country == "US" {
+                cityNames = ["Atlanta", "New York", "Washington", "New Orleans", "Seattle", "Philladephia", "New Jersey"]
+            }
+            else {
+                cityNames = ["Toronto", "Vancouver", "Alberta", "Saskatchewan", "Montreal", "Halifax", "Missisauga", "Hamilton"]
+            }
+        }
+
+        if let cityIndex = cityNames.firstIndex(of: user[0].city) {
+            cityPicker.selectRow(cityIndex, inComponent: 0, animated: false)
+            print(cityIndex)
+        }
 
         // Set the initial data for the cityPicker
-//        updateCityPickerData(for: user[0].country)
+        updateCityPickerData(for: user[0].country)
     }
     
     //If we had multiple countries for example
-//    func updateCityPickerData(for country: String) {
-//          if country == "Canada" {
-//              cityNames = ["Toronto", "Vancouver", "Alberta", "Saskatchewan", "Montreal", "Halifax", "Lethbridge", "Missisauga", "Hamilton"]
-//          } else if country == "US" {
-//              // Handle other countries
-//              cityNames = ["Atlanta", "New York", "Washington", "New Orleans", "Seattle", "Philladephia", "New Jersey"]
-//          }
-//
-//          // Reload the cityPicker data
-//          cityPicker.reloadAllComponents()
-//      }
-    
+    func updateCityPickerData(for country: String) {
+          if country == "Canada" {
+              cityNames = ["Toronto", "Vancouver", "Alberta", "Saskatchewan", "Montreal", "Halifax", "Missisauga", "Hamilton"]
+          } else if country == "US" {
+              // Handle other countries
+              cityNames = ["Atlanta", "New York", "Washington", "New Orleans", "Seattle", "Philladephia", "New Jersey"]
+          }
+
+          // Reload the cityPicker data
+          cityPicker.reloadAllComponents()
+    }
     
     // Update profile button
     @IBAction func updateProfileButton(_ sender: UIButton) {
         
         //If they are all empty, show an alert to the user
-        if self.FirstNameTextField.text!.isEmpty || self.LastNameTextField.text!.isEmpty || self.AddressTextField.text!.isEmpty || self.CityTextField.text!.isEmpty || self.CountryTextField.text!.isEmpty {
+        if self.FirstNameTextField.text!.isEmpty || self.LastNameTextField.text!.isEmpty || self.AddressTextField.text!.isEmpty {
             
             let alert = UIAlertController(title: "Incomplete form!",
                 message:"All fields are required", preferredStyle: .alert)
@@ -111,16 +114,24 @@ class ProfileViewController: UIViewController {
             present(alert, animated: true, completion: nil)
         }
         else {
+            // get selected country from the picker
+            let row_country = countryPicker.selectedRow(inComponent: 0)
+            let selected_country = countryNames[row_country]
+            
+            // get selected city from the picker
+            let row_city = cityPicker.selectedRow(inComponent: 0)
+            let selected_city = cityNames[row_city]
+            
             // Call updateUser to update the user in the database
             let userUpdateSuccessful = db.updateUser(
                 first_name: self.FirstNameTextField.text!,
                 last_name: self.LastNameTextField.text!,
                 address: self.AddressTextField.text!,
-                city: self.CityTextField.text!,
-                country: self.CountryTextField.text!,
+                city: selected_city,
+                country: selected_country,
                 email: defaults.string(forKey: "currentUserEmail")!
             )
-            
+
             if userUpdateSuccessful {
                  // User updated successfully!
                 let alert = UIAlertController(title: "Profile Update Success",
@@ -155,62 +166,60 @@ class ProfileViewController: UIViewController {
 
 }
 
+// Picker Data Source Methods for City Picker
+extension ProfileViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
 
-//// MARK: Picker Data Source Methods for City Picker
-//extension ProfileViewController: UIPickerViewDataSource {
-//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-//        return 1
-//    }
-//
-//    func pickerView(_ pickerView: UIPickerView,
-//                    numberOfRowsInComponent component: Int) -> Int {
-//        // Check which picker view is requesting data
-//        if pickerView == countryPicker {
-//            return countryNames.count
-//        } else if pickerView == cityPicker {
-//            return cityNames.count
-//        }
-//        return 0
-//    }
-//}
-//
-//// MARK: Picker Delegate Methods
-//extension ProfileViewController: UIPickerViewDelegate {
-//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//        // Check which picker view is requesting data
-//        if pickerView == countryPicker {
-//            return countryNames[row]
-//        } else if pickerView == cityPicker {
-//            return cityNames[row]
-//        }
-//        return nil
-//    }
-//
-//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        // Handle the selection for both picker views if needed
-//        if pickerView == countryPicker {
-//            // Handle country selection
-//            let selectedCountry = countryNames[row]
-//            updateCityPickerOptions(for: selectedCountry)
-//        } else if pickerView == cityPicker {
-//            // Handle city selection
-//        }
-//    }
-//}
-//
-//// Additional method to update cityPicker options based on selected country
-//extension ProfileViewController {
-//    func updateCityPickerOptions(for country: String) {
-//        
-//        if country == "Canada" {
-//            cityNames = ["Toronto", "Vancouver", "Alberta", "Saskatchewan", "Montreal", "Halifax", "Lethbridge", "Missisauga", "Hamilton"]
-//        } else if country == "US" {
-//            // Handle other countries
-//            cityNames = ["Atlanta", "New York", "Washington", "New Orleans", "Seattle", "Philladephia", "New Jersey"]
-//        }
-//
-//        // Reload the cityPicker data
-//        cityPicker.reloadAllComponents()
-//    }
-//}
+    func pickerView(_ pickerView: UIPickerView,
+                    numberOfRowsInComponent component: Int) -> Int {
+        // Check which picker view is requesting data
+        if pickerView == countryPicker {
+            return countryNames.count
+        } else if pickerView == cityPicker {
+            return cityNames.count
+        }
+        return 0
+    }
+}
+
+// Picker Delegate Methods
+extension ProfileViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        // Check which picker view is requesting data
+        if pickerView == countryPicker {
+            return countryNames[row]
+        } else if pickerView == cityPicker {
+            return cityNames[row]
+        }
+        return nil
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // Handle the selection for both picker views if needed
+        if pickerView == countryPicker {
+            // Handle country selection
+            let selectedCountry = countryNames[row]
+            updateCityPickerOptions(for: selectedCountry)
+        } else if pickerView == cityPicker {
+            // Handle city selection
+        }
+    }
+}
+
+// Additional method to update cityPicker options based on selected country
+extension ProfileViewController {
+    func updateCityPickerOptions(for country: String) {
+        if country == "Canada" {
+            cityNames = ["Toronto", "Vancouver", "Alberta", "Saskatchewan", "Montreal", "Halifax", "Missisauga", "Hamilton"]
+        } else if country == "US" {
+            // Handle other countries
+            cityNames = ["Atlanta", "New York", "Washington", "New Orleans", "Seattle", "Philladephia", "New Jersey"]
+        }
+
+        // Reload the cityPicker data
+        cityPicker.reloadAllComponents()
+    }
+}
 

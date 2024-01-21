@@ -10,14 +10,14 @@ Run on iPhone or iPad Simulator
 ### FEATURES:
 1. User registration
 2. User login
-3. Profile screen
+3. Profile screen (Set address, city and country)
 4. Home screen to list all cruises
 5. Cruise details screen
 6. Book a cruise
 7. Enter guests information
 8. Enter customer personal information
 9. Select payment type (Apple Pay, Google Pay, Credit Card)
-10. Payment with credit card
+10. Payment with credit card, Apple Pay or Google Pay (Dummy Payment)
 11. Confirmation screen
 12. **iPhone and iPad compatible UI** for both portrait and landscape views
 

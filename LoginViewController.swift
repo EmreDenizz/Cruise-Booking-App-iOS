@@ -1,13 +1,7 @@
 //
 //  LoginViewController.swift
-//  Team3_MAPD714_Project-Milestone3
 //
-//  @author Emre Deniz (301371047)
-//  @author Nkemjika Obi (301275091)
-//  @author Muindo Gituku (301372521)
-//  @date 2023-12-01
-//  @description iOS Project - Final Version
-//  Github Repo: https://github.com/EmreDenizz/Cruise-Booking-App-iOS
+//  Created by Emre Deniz on 2024-01-24.
 //
 
 import UIKit
